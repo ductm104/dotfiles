@@ -44,5 +44,7 @@ if has('persistent_undo')
     set undofile
 endif
 
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window ".expand("%"))
-autocmd VimLeave * call system("tmux rename-window zsh")
+if exists('$TMUX')
+    autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter,FocusGained * call system("tmux rename-window 'vim: ".expand("%")."'")
+    autocmd VimLeave,FocusLost * call system("tmux setw automatic-rename")
+endif
