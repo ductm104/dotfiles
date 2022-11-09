@@ -48,3 +48,6 @@ if exists('$TMUX')
     autocmd BufReadPost,FileReadPost,BufNewFile,BufEnter,FocusGained * call system("tmux rename-window 'vim: ".expand("%")."'")
     autocmd VimLeave,FocusLost * call system("tmux setw automatic-rename")
 endif
+
+set mouse=a
+set ttymouse=xterm
