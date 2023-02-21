@@ -49,5 +49,5 @@ if exists('$TMUX')
     autocmd VimLeave,FocusLost * call system("tmux setw automatic-rename")
 endif
 
-set mouse=a
-set ttymouse=xterm
+" set mouse=a
+" set ttymouse=xterm
