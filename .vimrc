@@ -33,6 +33,7 @@ highlight Comment ctermfg=green
 " Persistent undo
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
+set viminfo+=n~/.vim/viminfo
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -49,5 +50,5 @@ if exists('$TMUX')
     autocmd VimLeave,FocusLost * call system("tmux setw automatic-rename")
 endif
 
-set mouse=a
-set ttymouse=xterm
+" set mouse=a
+" set ttymouse=xterm
