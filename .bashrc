@@ -31,7 +31,7 @@ alias ta='tmux a -t'
 
 #alias git='LANG=en_GB git'
 #export LC_ALL=en_US
-#export EDITOR='vim'
+export EDITOR='vi'
 
 alias gls='git status'
 alias gdiff='git diff'
