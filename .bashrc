@@ -6,7 +6,7 @@ shopt -s histappend
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-alias ls='ls -hGF'
+alias ls='ls -hGF --color=auto'
 alias l="ls -lh"
 alias la="ls -lha"
 alias ll="ls -alht"
