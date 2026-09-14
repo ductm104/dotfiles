@@ -9,6 +9,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+export EDITOR='vi'
 
 eval $(/opt/homebrew/bin/brew shellenv)
 
@@ -49,3 +50,4 @@ alias glog='git log'
 
 alias asitop='TERM=xterm-256color sudo asitop'
 alias path='realpath'
+alias uva='source .venv/bin/activate'
