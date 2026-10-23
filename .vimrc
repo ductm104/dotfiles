@@ -30,18 +30,17 @@ set path+=**
 
 highlight Comment ctermfg=green
 
-" Persistent undo
-let vimDir = '$HOME/.vim'
-let &runtimepath.=','.vimDir
-set viminfo+=n~/.vim/viminfo
+let s:stateHome = empty($XDG_STATE_HOME)
+      \ ? expand('~/.local/state') : $XDG_STATE_HOME
+let s:stateDir = s:stateHome . '/vim'
+call mkdir(s:stateDir, 'p', 0700)
+let &viminfofile = s:stateDir . '/viminfo'
+let g:netrw_home = s:stateDir . '/netrw'
+call mkdir(g:netrw_home, 'p', 0700)
 
-" Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    let &undodir = myUndoDir
+    let &undodir = s:stateDir . '/undo'
+    call mkdir(&undodir, 'p', 0700)
     set undofile
 endif
 

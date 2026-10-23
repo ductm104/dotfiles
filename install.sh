@@ -72,11 +72,16 @@ main() {
   info "Installing dotfiles from $DOTFILES_DIR"
 
   ensure_bashrc_source
+  case "${SHELL:-}" in
+    */zsh|zsh)
+      link_file "${DOTFILES_DIR}/.zshenv" "${HOME}/.zshenv"
+      ;;
+  esac
   link_file "${DOTFILES_DIR}/.tmux.conf" "${HOME}/.tmux.conf"
   link_file "${DOTFILES_DIR}/.vimrc" "${HOME}/.vimrc"
   link_file "${DOTFILES_DIR}/.screenrc" "${HOME}/.screenrc"
 
-  info "Done. Open a new shell or run: source ~/.bashrc"
+  info "Done. Open a new shell to load the configuration."
 
   info "Backups are saved in: $DOTFILES_DIR"
 }
